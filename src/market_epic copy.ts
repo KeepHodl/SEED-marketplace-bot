@@ -1,13 +1,13 @@
 import fetch from 'node-fetch';
 import { BUY_PRICES, SELL_PRICES, TELEGRAM_DATA } from '../settings';
 import type { DataStructure, EggType } from './interfaces';
-import { API_URL, BUY_URL, HEADERS, SELL_URL } from './api';
+import { API_URL_LEGENDARY, BUY_URL, HEADERS, SELL_URL } from './api';
 
 let errorCount = 0;
 
-const checkMarket = async () => {
+const checkMarketLegendary = async () => {
   try {
-    const response = await fetch(API_URL, { headers: HEADERS });
+    const response = await fetch(API_URL_LEGENDARY, { headers: HEADERS });
     if (!response.ok) {
       errorCount++;
       if (response.status === 401) {
@@ -126,4 +126,4 @@ const timeString = () => {
 	return `${day}.${month} - ${hours}:${minutes}`;
 };
 
-export default checkMarket;
+export default checkMarketLegendary;
